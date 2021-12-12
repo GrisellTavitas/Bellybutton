@@ -61,15 +61,15 @@ function buildCharts(sample) {
     var sampleData = data.samples;
 
     // 4. Create a variable that filters the samples for the object with the desired sample number.
-    var resultArray = sampleData.filter(sampleObj => sampleObj.id == sample);
+    var resultSample = sampleData.filter(sampleObj => sampleObj.id == sample);
 
     //  5. Create a variable that holds the first sample in the array.
-    var result = resultArray[0];
+    var result = resultSample[0];
     
     // 6. Create variables that hold the otu_ids, otu_labels, and sample_values.
-    var otu_ids = result.otu_ids;
-    var otu_labels = result.otu_labels;
-    var sample_values = result.sample_values;
+    var otu_ids = resultSample.otu_ids;
+    var otu_labels = resultSample.otu_labels;
+    var sample_values = resultSample.sample_values;
 
     console.log(otu_ids)
     console.log(otu_labels)
@@ -82,7 +82,8 @@ function buildCharts(sample) {
     var yticks = otu_ids.slice(0, 10).map(otuID => `OTU ${otuID}`).reverse()
 
     // 8. Create the trace for the bar chart. 
-    var barData = {   
+    var barData = [
+      {   
         y: yticksBar,
         x: sample_values.slice(0,10).reverse(),
         text: otu_labels.slice(0,10).reverse(),
@@ -90,7 +91,8 @@ function buildCharts(sample) {
         orientation: 'h',
         width: 0.6,
         marker: { color: '(55, 83, 109)' }
-    };
+      },
+    ];
     // 9. Create the layout for the bar chart. 
     var barLayout = {
       title: "Top 10 Bacteria Cultures Found",
@@ -98,7 +100,7 @@ function buildCharts(sample) {
     };
 
     // 10. Use Plotly to plot the data with the layout. 
-    Plotly.newPlot("bar", barData, chartLayout);
+    Plotly.newPlot("bar", barData, bartLayout);
   });
 }
 
