@@ -20,9 +20,6 @@ function init() {
   });
 }
 
-// Initialize the dashboard
-init();
-
 function optionChanged(newSample) {
   // Fetch new data each time a new sample is selected
   buildMetadata(newSample);
@@ -71,26 +68,26 @@ function buildCharts(sample) {
     var otu_labels = resultSample.otu_labels;
     var sample_values = resultSample.sample_values;
 
-    console.log(otu_ids)
-    console.log(otu_labels)
-    console.log(sample_values)
-
+    //var bubbleLabels = result.otu_labels;
+    //var bubbleValues = result.sample_values;
+    
     // 7. Create the yticks for the bar chart.
     // Hint: Get the the top 10 otu_ids and map them in descending order  
     //  so the otu_ids with the most bacteria are last. 
+    var yticks = otu_ids.slice(0,10).map(otuID => `OTU ${otuID}`).reverse();
 
-    var yticks = otu_ids.slice(0, 10).map(otuID => `OTU ${otuID}`).reverse()
-
+    console.log(yticks)
+    
     // 8. Create the trace for the bar chart. 
     var barData = [
       {   
         y: yticks,
         x: sample_values.slice(0,10).reverse(),
         text: otu_labels.slice(0,10).reverse(),
-        type: 'bar',
-        orientation: 'h',
+        type: "bar",
+        orientation: "h",
         width: 0.6,
-        marker: { color: '(55, 83, 109)' }
+        marker: { color: "(55, 83, 109)" }
       },
     ];
     // 9. Create the layout for the bar chart. 
@@ -131,6 +128,18 @@ function buildCharts(sample) {
     // 3. Use Plotly to plot the data with the layout.
     Plotly.newPlot("bubble", bubbleData, bubbleLayout); 
 
+    // 1. Create a variable that filters the metadata array for the object with the desired sample number.
+    var metadata = data.metadata;
+      
+    var gaugeArray = metadata.filter(metaObj => metaObj.id == sample);  
+
+    // 2. Create a variable that holds the first sample in the metadata array.
+    var gaugeResult = gaugeArray[0];
+    
+    // 3. Create a variable that holds the washing frequency.  
+    var wfreqs = gaugeResult.wfreq;
+    console.log(wfreqs)
+
     // 4. Create the trace for the gauge chart.
     var gaugeData = [
       {
@@ -159,7 +168,6 @@ function buildCharts(sample) {
 
     // 6. Use Plotly to plot the gauge data and layout.
     Plotly.newPlot("gauge", gaugeData, gaugeLayout);
-  });
-}
+
 
 init();
