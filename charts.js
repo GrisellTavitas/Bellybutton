@@ -140,7 +140,7 @@ function buildCharts(sample) {
     // 4. Create the trace for the gauge chart.
     var gaugeData = [
       {
-        value: parseFloat(washFrequency),
+        value: parseFloat(wfreqs),
         type: "indicator",
         mode: "gauge+number",
         gauge: {
