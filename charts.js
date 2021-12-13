@@ -20,6 +20,8 @@ function init() {
   });
 }
 
+init();
+
 function optionChanged(newSample) {
   // Fetch new data each time a new sample is selected
   buildMetadata(newSample);
@@ -98,8 +100,6 @@ function buildCharts(sample) {
 
     // 10. Use Plotly to plot the data with the layout. 
     Plotly.newPlot("bar", barData, barLayout);
-  });
-}
 
     // 1. Create the trace for the bubble chart.
     var bubbleData = [
@@ -168,6 +168,7 @@ function buildCharts(sample) {
 
     // 6. Use Plotly to plot the gauge data and layout.
     Plotly.newPlot("gauge", gaugeData, gaugeLayout);
-
+  });
+}
 
 init();
