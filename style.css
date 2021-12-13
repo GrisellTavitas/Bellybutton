@@ -1,8 +1,9 @@
 body {
-    color: #406456;
+    color: #314d42;
 }
 .jumbotron {
     background-image: url("https://images.ctfassets.net/f60q1anpxzid/asset-1d2e98781e765461463a28b00078c438/e2cc9d4e73f8146ff3030f2fe5055f52/embeddedHPIMG_BellyButtonPersonalityTest_1280x627px.jpg?fm=jpg&fl=progressive&q=50&w=1200");
     background-size: 100% 110%;
+    opacity: 0.8;
     text-align: center;
 }
