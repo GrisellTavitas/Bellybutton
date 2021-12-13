@@ -10,10 +10,7 @@
   <link rel="stylesheet" href="style.css">
 </head>
 
-
-
-<body class="bg-light">
-<div style="background-color: rgba(255,0,0,0.1);"></div>
+<body style="background-color: rgba(185, 202, 204, 0.658);">
   <div class="container">
     <div class="row">
       <div class="col-md-12 jumbotron text-center">
@@ -22,30 +19,31 @@
       </div>
     </div>
     <div class="row">
-      <div class="col-md-4">
-        <div class="well">
-          <h5>Test Subject ID No.:</h5>
-          <!-- <select id="selDataset"></select> -->
-          <select id="selDataset" onchange="optionChanged(this.value)"></select>
-        </div>
-        <div class="panel panel-primary">
-          <div class="panel-heading">
-            <h3 class="panel-title">Demographic Info</h3>
+      <div style="background-color: rgba(86, 160, 168, 0.658);">
+        <div class="col-md-4 ">
+          <div class="well">
+            <h5>Test Subject ID No.:</h5>
+            <!-- <select id="selDataset"></select> -->
+            <select id="selDataset" onchange="optionChanged(this.value)"></select>
           </div>
-          <div id="sample-metadata" class="panel-body"></div>
+          <div class="panel panel-info">
+            <div class="panel-heading">
+              <h3 class="panel-title">Demographic Info</h3>
+            </div>
+            <div id="sample-metadata" class="panel-body"></div>
+          </div>
         </div>
       </div>
       <div class="col-md-8">
         <div id="bar"></div>
       </div>
-      <div class="col-md-12
-      ">
-        <div id="gauge"></div>
+      <div class="col-md-12">
+        <div id="bubble"></div>
       </div>
     </div>
     <div class="row">
-      <div class="col-md-12" colorscale="viridis">
-        <div id="bubble"></div>
+      <div class="col-md-12">
+        <div id="gauge"></div>
       </div>
     </div>
   </div>
