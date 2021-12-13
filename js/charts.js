@@ -86,7 +86,7 @@ function buildCharts(sample) {
         type: "bar",
         orientation: "h",
         width: 0.6,
-        marker: { color: "(55, 83, 109)" }
+        marker: { color: "(70, 163, 166)" }
       },
     ];
     // 9. Create the layout for the bar chart. 
@@ -108,7 +108,7 @@ function buildCharts(sample) {
         marker: {
           size: sample_values,
           color: otu_ids,
-          colorscale:"red"
+          colorscale:"viridis"
         }
       }
    
@@ -145,7 +145,7 @@ function buildCharts(sample) {
         mode: "gauge+number",
         gauge: {
           axis: { range: [0, 10], tickwidth: 2, tickcolor: "darkblue" },
-          bar: { color: "gray" },
+          bar: {color: "black"},
           steps: [
             { range: [0, 2], color: "red" },
             { range: [2, 4], color: "orange" },
